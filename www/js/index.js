@@ -20,22 +20,28 @@
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
+ 
 
 function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-    // AutoTheme.getTheme(function (isdark) {
-    //     console.log("Is dark mode: " + isdark)
-    // })
-    //    window.onThemeChange = function(isdark) {
-    //     console.log("Dark mode changed. Is dark mode: "+isdark)
-    // }
-    // window.matchMedia('(prefers-color-scheme:dark)').addListener(function() {
-    //     var isdark = window.matchMedia('(prefers-color-scheme:dark)').matches;
-    // });
+    alert('device ready');
+     //var ref = cordova.InAppBrowser.open('http://192.168.0.104:3333/', '_blank', 'hidenavigationbuttons=yes,location=no,toolbar=no,zoom=no,fullscreen=yes,mediaPlaybackRequiresUserAction=no,allowInlineMediaPlayback=yes');
+    
+     var baseApp = document.getElementById('baseApp');
+     baseApp.onclick = function() {
+        var ref = cordova.InAppBrowser.open('https://pongvarid.github.io/lionfienessmockup/', '_blank', 'hidenavigationbuttons=yes,location=no,toolbar=no,zoom=no,fullscreen=yes,mediaPlaybackRequiresUserAction=no,allowInlineMediaPlayback=yes');
+        ref.addEventListener('loadstart', function(event) {
+            if (event.url.match("https://www.google.com")) {
+                
+                window.open('https://pongvarid.github.io/lionfienessmockup/#/about', '_system', 'location=yes');  
+            }
+        });
+    };
+
+     var about = document.getElementById('aboutApp');
+     aboutApp.onclick = function() {
+            window.open('https://pongvarid.github.io/lionfienessmockup/#/about', '_system', 'location=yes');
+        };
  
-    window.open = cordova.InAppBrowser.open;
-    //alert(`Running cordova-${cordova.platformId}@${cordova.version}`);
-    var ref = cordova.InAppBrowser.open('https://pongvarid.github.io/lionfienessmockup/', '_blank', 'hidenavigationbuttons=yes,location=no,toolbar=no,zoom=no,fullscreen=yes,mediaPlaybackRequiresUserAction=no,allowInlineMediaPlayback=yes');
-  
-    ref.show();
-}
+} 
+
+ 
