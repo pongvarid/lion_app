@@ -22,8 +22,7 @@
 document.addEventListener('deviceready', onDeviceReady, false);
  
 
-function onDeviceReady() {
-    alert('device ready');
+function onDeviceReady() { 
      //var ref = cordova.InAppBrowser.open('http://192.168.0.104:3333/', '_blank', 'hidenavigationbuttons=yes,location=no,toolbar=no,zoom=no,fullscreen=yes,mediaPlaybackRequiresUserAction=no,allowInlineMediaPlayback=yes');
     
      var baseApp = document.getElementById('baseApp');
